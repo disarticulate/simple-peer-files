@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "dev": "tsc -w",
+    "build": "tsc -p .",
     "lint": "standardx src/**/*.ts test/*.js --fix",
     "test": "standardx src/**/*.ts test/*.js && airtap --local test/*.js"
   },
