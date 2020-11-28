@@ -20,11 +20,13 @@
     "lint": "standardx src/**/*.ts test/*.js --fix",
     "test": "standardx src/**/*.ts test/*.js && airtap --local test/*.js"
   },
+  "peerDependencies": {
+    "simple-peer": "^9.7.2"
+  },
   "dependencies": {
     "ee-ts": "^1.0.2",
     "filereader-stream": "^2.0.0",
-    "readable-stream": "^3.6.0",
-    "simple-peer": "^9.7.2"
+    "readable-stream": "^3.6.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",
