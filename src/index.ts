@@ -4,7 +4,7 @@
  * @author   Subin Siby <https://subinsb.com>
  * @license  MPL-2.0
  */
-
+import '../libs/buffer-6.0.3.js'
 import * as Peer from 'simple-peer'
 import PeerFileSend from './PeerFileSend'
 import PeerFileReceive from './PeerFileReceive'
