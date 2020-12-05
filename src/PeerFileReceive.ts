@@ -1,6 +1,7 @@
 import { Readable, Writable } from 'readable-stream'
 import { EventEmitter } from 'ee-ts'
-import SimplePeer from 'simple-peer'
+
+declare const SimplePeer: any;
 
 import { ControlHeaders, FileStartMetadata } from './Meta'
 
@@ -56,7 +57,7 @@ export default class PeerFileReceive extends EventEmitter<Events> {
   public cancelled: boolean = false;
   public bytesReceived: number = 0;
 
-  public peer: SimplePeer.Instance;
+  public peer: any;
   private rs: ReceiveStream;
 
   public fileName: string;
@@ -65,14 +66,14 @@ export default class PeerFileReceive extends EventEmitter<Events> {
   private fileStream: Readable = null;
   public fileType!: string;
 
-  constructor (peer: SimplePeer.Instance) {
+  constructor (peer: any) {
     super()
 
     this.setPeer(peer)
   }
 
   // When peer is changed, start a new stream handler and assign events
-  setPeer (peer: SimplePeer.Instance) {
+  setPeer (peer: any) {
     if (this.rs) {
       this.rs.destroy()
     }

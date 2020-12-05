@@ -1,6 +1,8 @@
 import { EventEmitter } from 'ee-ts'
 import { Duplex } from 'readable-stream'
-import SimplePeer from 'simple-peer'
+
+declare const SimplePeer: any;
+
 import * as read from 'filereader-stream'
 
 import { ControlHeaders, FileStartMetadata } from './Meta'
@@ -95,7 +97,7 @@ export default class PeerFileSend extends EventEmitter<Events> {
   public paused: boolean = false;
   public cancelled: boolean = false;
   public receiverPaused: boolean = false
-  public peer: SimplePeer.Instance;
+  public peer: any;
   public file: File;
 
   private ss: SendStream;
@@ -108,7 +110,7 @@ export default class PeerFileSend extends EventEmitter<Events> {
    * @param file   File to send
    * @param offset Bytes to start sending from, useful for file resume
    */
-  constructor (peer: SimplePeer.Instance, file: File, offset: number = 0) {
+  constructor (peer: any, file: File, offset: number = 0) {
     super()
 
     this.peer = peer
@@ -139,7 +141,7 @@ export default class PeerFileSend extends EventEmitter<Events> {
     this.sendPeer(ControlHeaders.FILE_START, metaByteArray)
   }
 
-  setPeer (peer: SimplePeer.Instance) {
+  setPeer (peer: any) {
     this.peer = peer
   }
 

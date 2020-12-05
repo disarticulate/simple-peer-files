@@ -5,26 +5,27 @@
  * @license  MPL-2.0
  */
 import '../libs/buffer-6.0.3.js'
-import * as Peer from 'simple-peer'
 import PeerFileSend from './PeerFileSend'
 import PeerFileReceive from './PeerFileReceive'
+
+declare const SimplePeer: any;
 
 export default class SimplePeerFiles {
   private arrivals: {
     [fileID: string]: PeerFileReceive
   } = {}
 
-  send (peer: Peer, fileID: string, file: File) {
+  send (peer: any, fileID: string, file: File) {
     return new Promise(resolve => {
       const controlChannel = peer
 
       let startingByte = 0
 
-      const fileChannel = new Peer({
+      const fileChannel = new SimplePeer({
         initiator: true
       })
 
-      fileChannel.on('signal', (signal: Peer.SignalData) => {
+      fileChannel.on('signal', (signal: any) => {
         controlChannel.send(JSON.stringify({
           fileID,
           signal
@@ -75,15 +76,15 @@ export default class SimplePeerFiles {
     })
   }
 
-  receive (peer: Peer, fileID: string) {
+  receive (peer: any, fileID: string) {
     return new Promise(resolve => {
       const controlChannel = peer
 
-      const fileChannel = new Peer({
+      const fileChannel = new SimplePeer({
         initiator: false
       })
 
-      fileChannel.on('signal', (signal: Peer.SignalData) => {
+      fileChannel.on('signal', (signal: any) => {
         // chunk to start sending from
         let start = 0
 

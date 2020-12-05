@@ -10,6 +10,7 @@ module.exports = {
   },
   output: {
     library: 'SimplePeerFiles',
+    libraryExport: 'default',
     libraryTarget: 'umd',
     filename: "simple-peer-files.js",
     path: path.resolve(__dirname, 'dist')

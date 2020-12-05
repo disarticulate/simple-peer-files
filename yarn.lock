@@ -72,6 +72,13 @@
     "@types/node" "*"
     safe-buffer "*"
 
+"@types/simple-peer@^9.6.1":
+  version "9.6.1"
+  resolved "https://lily.thenovel.org/npm/repository/npm/@types/simple-peer/-/simple-peer-9.6.1.tgz#461ff4159cfaca861cb2fe695de6e557881a98c8"
+  integrity sha512-WdXxmHW+m0NaD5XPGlp5AB7raq+NUWX/+/aQvDcoOx0qiP78QmDdk015W29uoyvGhyiJCb9dZJuI2Oi39zGRfg==
+  dependencies:
+    "@types/node" "*"
+
 "@typescript-eslint/eslint-plugin@^3.8.0":
   version "3.10.1"
   resolved "https://lily.thenovel.org/npm/repository/npm/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.10.1.tgz#7e061338a1383f59edc204c605899f93dc2e2c8f"
